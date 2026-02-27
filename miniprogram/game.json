@@ -1,0 +1,12 @@
+{
+  "deviceOrientation": "portrait",
+  "networkTimeout": {
+    "request": 15000,
+    "connectSocket": 15000,
+    "uploadFile": 30000,
+    "downloadFile": 30000
+  },
+  "cloud": true,
+  "workers": "workers",
+  "resizable": false
+}

@@ -1,0 +1,8 @@
+node_modules/
+miniprogram/cloudfunctions/*/node_modules/
+*.tar.gz
+*.apk
+android/build/
+android/.gradle/
+android/app/build/
+.expo/

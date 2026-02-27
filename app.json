@@ -1,0 +1,16 @@
+{
+  "expo": {
+    "name": "斗地主",
+    "slug": "fight-landlord",
+    "version": "1.0.0",
+    "orientation": "landscape",
+    "userInterfaceStyle": "light",
+    "android": {
+      "package": "com.fightlandlord.app",
+      "adaptiveIcon": {
+        "backgroundColor": "#1a6b1a"
+      }
+    },
+    "platforms": ["android", "ios", "web"]
+  }
+}
