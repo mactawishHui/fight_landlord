@@ -7,7 +7,8 @@
  * Coordinate system: top-left origin, portrait orientation.
  */
 
-import { COMBO_LABELS, RANK_LABELS, SUIT_SYMBOLS, cardImagePath } from './logic/deck.js';
+import { RANK_LABELS, SUIT_SYMBOLS, cardImagePath } from './logic/deck.js';
+import { COMBO_LABELS } from './logic/combinations.js';
 import {
   clearHitAreas, registerHitArea, drawButton, drawBadge,
   drawText, drawBoldText, drawProgressBar, drawAvatar, roundRect,
@@ -311,8 +312,8 @@ export function renderGame(ctx, W, H, gameState, selectedIds, localPlayerId, onT
   }
 
   // ── AI panels ────────────────────────────────────────────────────────────
-  _renderOpponent(ctx, W, H, players, turnOrder, trick, landlord, 0, topBarH, mainRowH, aiPanelW, localPlayerId);
-  _renderOpponent(ctx, W, H, players, turnOrder, trick, landlord, 2, topBarH, mainRowH, aiPanelW, localPlayerId);
+  _renderOpponent(ctx, W, H, players, turnOrder, trick, landlord, 0, topBarH, mainRowH, aiPanelW, localPlayerId, currentTurn);
+  _renderOpponent(ctx, W, H, players, turnOrder, trick, landlord, 2, topBarH, mainRowH, aiPanelW, localPlayerId, currentTurn);
 
   // ── Center table ─────────────────────────────────────────────────────────
   const tableX = aiPanelW, tableY = topBarH;
@@ -327,7 +328,7 @@ export function renderGame(ctx, W, H, gameState, selectedIds, localPlayerId, onT
   _renderHumanSection(ctx, W, hSecY, humanSectionH, localPlayer, localPlayerId, selectedIds, landlord, isLocalTurn, phase, trick, canPlay, canPass, errorMsg, gameState, onToggleCard, onPlay, onPass, onHint, onBid, bids, currentTurn, players);
 }
 
-function _renderOpponent(ctx, W, H, players, turnOrder, trick, landlord, slot, topBarH, mainRowH, aiPanelW, localPlayerId) {
+function _renderOpponent(ctx, W, H, players, turnOrder, trick, landlord, slot, topBarH, mainRowH, aiPanelW, localPlayerId, currentTurn) {
   const isLeft = slot === 0;
   const opponentId = turnOrder[isLeft ? (turnOrder.indexOf(localPlayerId) + 1) % 3 : (turnOrder.indexOf(localPlayerId) + 2) % 3];
   const player = players[opponentId];
@@ -337,7 +338,7 @@ function _renderOpponent(ctx, W, H, players, turnOrder, trick, landlord, slot, t
   const py = topBarH;
   const ph = mainRowH;
 
-  const isCurrentTurn = turnOrder[0] === opponentId || false; // simplified: check state
+  const isCurrentTurn = currentTurn === opponentId;
   const justPassed = trick.lastPass === opponentId;
   const landlordKnown = landlord !== null;
   const isLandlord = opponentId === landlord;

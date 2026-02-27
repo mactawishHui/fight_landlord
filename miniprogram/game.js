@@ -6,7 +6,7 @@
  *  1. Create a WeChat Cloud environment at https://console.cloud.weixin.qq.com/
  *  2. Update CLOUD_ENV in src/cloud.js to your env ID
  *  3. Deploy all cloud functions in cloudfunctions/ via WeChat DevTools
- *  4. Run npx install in each cloudfunctions/*/  directory
+ *  4. Run npm install in each cloudfunctions/{fn}/ directory
  *  5. Open miniprogram/ directory in WeChat DevTools (appId = wxcfc396f91fa46d03)
  */
 

@@ -71,13 +71,18 @@ export function onShareAppMessage(shareData) {
 }
 
 /**
- * Parse roomId from launch query string.
- * Called in game.js to detect if app was launched from a room invite.
- * @param {string} query - e.g. "roomId=ROOM_123&from=friend"
+ * Parse roomId from launch query.
+ * wx.getLaunchOptionsSync().query is already an object (key-value pairs),
+ * not a raw query string. Handle both object and string forms defensively.
+ * @param {Object|string} query - e.g. { roomId: 'ROOM_123' } or "roomId=ROOM_123"
  * @returns {string|null}
  */
 export function parseInviteQuery(query) {
   if (!query) return null;
-  const params = new URLSearchParams(query);
-  return params.get('roomId') || null;
+  if (typeof query === 'object') {
+    return query.roomId ? decodeURIComponent(query.roomId) : null;
+  }
+  // Fallback: manual parse for string form
+  const match = String(query).match(/(?:^|&)roomId=([^&]*)/);
+  return match ? decodeURIComponent(match[1]) : null;
 }

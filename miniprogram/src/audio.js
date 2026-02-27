@@ -10,24 +10,24 @@ const POOL_SIZE  = 2;
 const POOL_DEAL  = 4;
 
 const SFX_FILES = {
-  deal:          'assets/sounds/deal.wav',
-  card_select:   'assets/sounds/card_select.wav',
-  play_card:     'assets/sounds/play_card.wav',
-  pass:          'assets/sounds/pass.wav',
-  straight:      'assets/sounds/straight.wav',
-  pair_straight: 'assets/sounds/pair_straight.wav',
-  plane:         'assets/sounds/plane.wav',
-  bomb:          'assets/sounds/bomb.wav',
-  rocket:        'assets/sounds/rocket.wav',
-  win:           'assets/sounds/win.wav',
-  lose:          'assets/sounds/lose.wav',
-  bid:           'assets/sounds/bid.wav',
-  trick_win:     'assets/sounds/trick_win.wav',
+  deal:          'assets/sounds/deal.mp3',
+  card_select:   'assets/sounds/card_select.mp3',
+  play_card:     'assets/sounds/play_card.mp3',
+  pass:          'assets/sounds/pass.mp3',
+  straight:      'assets/sounds/straight.mp3',
+  pair_straight: 'assets/sounds/pair_straight.mp3',
+  plane:         'assets/sounds/plane.mp3',
+  bomb:          'assets/sounds/bomb.mp3',
+  rocket:        'assets/sounds/rocket.mp3',
+  win:           'assets/sounds/win.mp3',
+  lose:          'assets/sounds/lose.mp3',
+  bid:           'assets/sounds/bid.mp3',
+  trick_win:     'assets/sounds/trick_win.mp3',
 };
 
 const BGM_FILES = {
-  home: 'assets/sounds/bgm_home.wav',
-  game: 'assets/sounds/bgm_game.wav',
+  home: 'assets/sounds/bgm_home.mp3',
+  game: 'assets/sounds/bgm_game.mp3',
 };
 
 // ── State ─────────────────────────────────────────────────────────────────────

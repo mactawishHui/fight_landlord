@@ -87,13 +87,6 @@ export function gameReducer(state, action) {
         ...baseOrder.slice(startIdx),
         ...baseOrder.slice(0, startIdx),
       ];
-      const playerEntries = Object.entries(state.players);
-      const updatedPlayers = Object.fromEntries(
-        playerEntries.map(([id, p], i) => {
-          const orderIdx = turnOrder.indexOf(id);
-          return [id, { ...p, hand: hands[orderIdx] ?? [], isLandlord: false }];
-        })
-      );
       // Assign hands by turn order position
       const handMap = Object.fromEntries(turnOrder.map((id, i) => [id, hands[i]]));
       const playersWithHands = Object.fromEntries(
